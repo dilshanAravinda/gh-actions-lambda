@@ -32,7 +32,7 @@ export const handler = async (event:any) =>{
     console.error('There was a problem with the fetch operation:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Internal Server Error' })
+      body: JSON.stringify({ error})
     };
   }
 };
