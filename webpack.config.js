@@ -6,7 +6,7 @@ const config = {
   entry: './index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'index.js'
   },
   module: {
     rules: [
