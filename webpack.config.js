@@ -1,11 +1,12 @@
 const path = require('path');
 
 const config = {
+    target: 'node',
     mode: 'none',
   entry: './index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js'
+    filename: 'bundle.js'
   },
   module: {
     rules: [
