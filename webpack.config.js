@@ -3,7 +3,7 @@ const path = require('path');
 const config = {
     target: 'node',
     mode: 'none',
-  entry: './index.ts',
+    entry: './index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js'
@@ -11,7 +11,7 @@ const config = {
   module: {
     rules: [
         {
-            test: /\.tsx?$/,
+            test: /\.ts/,
             use: [
               {
                 loader: "ts-loader",
