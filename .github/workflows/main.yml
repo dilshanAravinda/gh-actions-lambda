@@ -26,6 +26,6 @@ jobs:
           npm ci
       - name: deploy
         run: |
-          npx ncc build index.ts
+          npx webpack
           zip -j deploy.zip ./dist/*
           aws lambda update-function-code --function-name=gh_actions_lambda --zip-file=fileb://deploy.zip
