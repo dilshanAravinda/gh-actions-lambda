@@ -1,7 +1,7 @@
-{
-    "compilerOptions": {
-      "target": "es2015",
-      "moduleResolution": "node"
-      /* Specify ECMAScript target version */           /* Specify module code generation */          /* Enable compatibility with CommonJS modules */
-    }
-  }
+// {
+//     "compilerOptions": {
+//       "target": "es2015",
+//       "moduleResolution": "node"
+//       /* Specify ECMAScript target version */           /* Specify module code generation */          /* Enable compatibility with CommonJS modules */
+//     }
+//   }
