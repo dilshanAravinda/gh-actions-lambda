@@ -8,7 +8,7 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       input:{
-        main : './index.ts'
+        main : './main.js'
       }
     }
   },
