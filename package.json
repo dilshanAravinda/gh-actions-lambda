@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node ./scripts/start.js",
     "build": "npx webpack"
   },
   "dependencies": {
@@ -8,7 +8,8 @@
     "@types/axios": "^0.14.0",
     "@types/node": "^20.12.7",
     "@vercel/ncc": "^0.38.1",
-    "axios": "^1.6.8"
+    "axios": "^1.6.8",
+    "vite": "^5.2.8"
   },
   "devDependencies": {
     "ts-loader": "^9.5.1",

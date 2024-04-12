@@ -1,10 +1,14 @@
+// import { APIGatewayProxyEvent, APIGatewayProxyResultV2, Handler } from 'aws-lambda';
+// import axios from 'axios';
 const axios = require('axios')
+
 const adapter = axios.getAdapter('http');
-const instance = axios.create({
+
+const instance = axios.default.create({
   adapter: adapter
 })
 
-export const handler = async (event:any) =>{
+const handler = async (event) =>{
   try {
     const { latitude, longitude, radius, place } = event.queryStringParameters; // Extract values from query parameters
     const apiKey = 'AIzaSyCt_LMsL_E198Qcfucq6A_KpPPH1QYFmew'; // Assuming you have the API key stored in an environment variable
