@@ -1,19 +1,16 @@
-// import { APIGatewayProxyEvent, APIGatewayProxyResultV2, Handler } from 'aws-lambda';
-// import axios from 'axios';
-const axios = require('axios')
-
-const adapter = axios.getAdapter('http');
-
-const instance = axios.default.create({
-  adapter: adapter
-})
-
-const handler = async (event) =>{
+import xior from 'axios';
+// const adapter = axios.getAdapter('http');
+// const xior = axios.default.create({
+//   adapter: adapter
+// })
+// import xior from 'xior'
+export const handler = async (event) =>{
   try {
     const { latitude, longitude, radius, place } = event.queryStringParameters; // Extract values from query parameters
     const apiKey = 'AIzaSyCt_LMsL_E198Qcfucq6A_KpPPH1QYFmew'; // Assuming you have the API key stored in an environment variable
     
-    const response = await instance.post('https://places.googleapis.com/v1/places:autocomplete', {
+    const response = await xior.post('https://places.googleapis.com/v1/places:autocomplete?languageCode=en', 
+    {
       input: place,
       locationBias: {
         circle: {
@@ -21,10 +18,12 @@ const handler = async (event) =>{
             latitude,
             longitude
           },
-          radius
+          radius,
         }
-      }
-    }, {
+      },
+      
+    },
+    {
       headers: {
         'Content-Type': 'application/json',
         'X-Goog-Api-Key': apiKey
