@@ -1,9 +1,9 @@
 {
   "scripts": {
     "start": "node ./scripts/start.js",
-    "start:esbuild": "esbuild ./src/index.js --bundle --minify --sourcemap --platform=node --target=node16.14 --outdir=dist && node ./dist/index",
+    "start:esbuild": "esbuild ./src/api-places-autocomplete/index.js --bundle --minify --sourcemap --platform=node --target=node16.14 --outdir=dist && node ./dist/index",
     "build": "npx webpack && node ./dist/index",
-    "p": "parcel build index.js --out-dir dist"
+    "build:places_autocomplete": "esbuild ./src/places_autocomplete/index.js --bundle --minify --platform=node --target=node16.14 --outdir=dist/places_autocomplete"
   },
   "dependencies": {
     "@types/aws-lambda": "^8.10.137",

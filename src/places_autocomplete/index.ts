@@ -44,10 +44,10 @@ export const handler = async (event) =>{
 };
 // latitude=6.9074944&longitude=79.8425088&radius=500.0&place=colombo
 
-handler({
-  queryStringParameters:{
-    latitude:6.9074944, longitude: 79.8425088, radius: 500.0, place: "colombo"
-  }
-}).then(data => {
-  console.log(data)
-})
+// handler({
+//   queryStringParameters:{
+//     latitude:6.9074944, longitude: 79.8425088, radius: 500.0, place: "colombo"
+//   }
+// }).then(data => {
+//   console.log(data)
+// })

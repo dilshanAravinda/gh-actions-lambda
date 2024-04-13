@@ -24,8 +24,8 @@ jobs:
           CI: true
         run: |
           npm ci
-      - name: deploy
+      - name: deploy_google_api_places_autocomplete
         run: |
-          npm run start:esbuild
-          zip -j deploy.zip ./dist/*
-          aws lambda update-function-code --function-name=gh_actions_lambda --zip-file=fileb://deploy.zip
+          npm run build:places_autocomplete
+          zip -j deploy.places_autocomplete.zip ./dist/places_autocomplete/*
+          aws lambda update-function-code --function-name=gh_actions_lambda --zip-file=fileb://deploy.places_autocomplete.zip
