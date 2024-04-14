@@ -32,5 +32,5 @@ jobs:
       - name: deploy_google_api_validateAddress
         run: |
           npm run build:validate_address
-          zip -j deploy.places_autocomplete.zip ./dist/validateAddress/*
+          zip -j deploy.validateAddress.zip ./dist/validateAddress/*
           aws lambda update-function-code --function-name=lambda_addressValidation --zip-file=fileb://deploy.validateAddress.zip
