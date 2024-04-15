@@ -54,7 +54,7 @@ exports.handler = async (event) => {
       address: {
         regionCode,
         locality,
-        addressLines: postalCode, 
+        addressLines: [postalCode], 
       },
     };
 
