@@ -28,7 +28,7 @@ jobs:
         run: |
           npm run build:places_autocomplete
           zip -j deploy.places_autocomplete.zip ./dist/places_autocomplete/*
-          aws lambda update-function-configuration --function-name gh_actions_lambda --environment '{"Variables":{"API_KEY":"hello","DATABASE_URL":"your_database_url"}}' --zip-file fileb://deploy.places_autocomplete.zip
+          aws lambda update-function-code --function-name gh_actions_lambda --environment '{"Variables":{"API_KEY":"hello","DATABASE_URL":"your_database_url"}}' --zip-file fileb://deploy.places_autocomplete.zip
       - name: deploy_google_api_validateAddress
         run: |
           npm run build:validate_address
