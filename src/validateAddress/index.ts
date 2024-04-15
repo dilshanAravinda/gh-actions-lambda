@@ -47,14 +47,14 @@ exports.handler = async (event) => {
   try {
     // Extract address data from query parameters
     const queryParams = event.queryStringParameters;
-    const { regionCode, locality, addressLines } = queryParams;
+    const { regionCode, locality, postalCode } = queryParams;
 
     // Construct data object for API call
     const data = {
       address: {
         regionCode,
         locality,
-        addressLines: addressLines.split(","), // Convert comma-separated string to array
+        addressLines: postalCode, 
       },
     };
 
@@ -90,19 +90,19 @@ exports.handler = async (event) => {
     if (postalCodeConfirmed) {
       return {
         statusCode: 200,
-        body: JSON.stringify({ message: "Postal code is confirmed." }),
+        body: JSON.stringify({ isValid: true }),
       };
     } else {
       return {
         statusCode: 400,
-        body: JSON.stringify({ message: "Postal code is not confirmed." }),
+        body: JSON.stringify({ isValid: false }),
       };
     }
   } catch (error) {
     console.error("Error:", error.response.data);
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: "Internal server error" }),
+      body: JSON.stringify({ message: "Internal server error" , error}),
     };
   }
 };
