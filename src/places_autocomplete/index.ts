@@ -1,16 +1,12 @@
-import xior from 'axios';
-// const adapter = axios.getAdapter('http');
-// const xior = axios.default.create({
-//   adapter: adapter
-// })
-// import xior from 'xior'
+import axios from 'axios';
+
 export const handler = async (event) =>{
   try {
     const { latitude, longitude, radius, place } = event.queryStringParameters; // Extract values from query parameters
     
     const apiKey = process.env.api_key; // Assuming you have the API key stored in an environment variable
     
-    const response = await xior.post('https://places.googleapis.com/v1/places:autocomplete?languageCode=en', 
+    const response = await axios.post('https://places.googleapis.com/v1/places:autocomplete?languageCode=en', 
     {
       input: place,
       locationBias: {
@@ -43,12 +39,3 @@ export const handler = async (event) =>{
     };
   }
 };
-// latitude=6.9074944&longitude=79.8425088&radius=500.0&place=colombo
-
-// handler({
-//   queryStringParameters:{
-//     latitude:6.9074944, longitude: 79.8425088, radius: 500.0, place: "colombo"
-//   }
-// }).then(data => {
-//   console.log(data)
-// })
