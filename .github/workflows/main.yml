@@ -34,4 +34,5 @@ jobs:
         run: |
           npm run build:validate_address
           zip -j deploy.validateAddress.zip ./dist/validateAddress/*
+          aws lambda update-function-configuration --function-name lambda_addressValidation --environment "Variables={api_key= ${{ secrets.GOOGLE_API_KEY }}}"
           aws lambda update-function-code --function-name=lambda_addressValidation --zip-file=fileb://deploy.validateAddress.zip
