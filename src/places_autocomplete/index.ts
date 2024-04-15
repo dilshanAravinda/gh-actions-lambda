@@ -7,7 +7,8 @@ import xior from 'axios';
 export const handler = async (event) =>{
   try {
     const { latitude, longitude, radius, place } = event.queryStringParameters; // Extract values from query parameters
-    const apiKey = 'AIzaSyCt_LMsL_E198Qcfucq6A_KpPPH1QYFmew'; // Assuming you have the API key stored in an environment variable
+    // const apiKey = 'AIzaSyCt_LMsL_E198Qcfucq6A_KpPPH1QYFmew'; // Assuming you have the API key stored in an environment variable
+    const apiKey = process.env.api_key; // Assuming you have the API key stored in an environment variable
     
     const response = await xior.post('https://places.googleapis.com/v1/places:autocomplete?languageCode=en', 
     {
