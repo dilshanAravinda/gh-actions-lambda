@@ -58,7 +58,7 @@ exports.handler = async (event) => {
       },
     };
 
-    const apiKey = "AIzaSyCt_LMsL_E198Qcfucq6A_KpPPH1QYFmew"; // Assuming you have the API key stored in an environment variable
+    const apiKey = process.env.api_key; // Assuming you have the API key stored in an environment variable
 
     const headers = {
       "Content-Type": "application/json",
