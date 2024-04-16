@@ -18,7 +18,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-north-1
+          aws-region: ap-southeast-2
       - name: npm install
         env:
           CI: true
@@ -28,8 +28,8 @@ jobs:
         run: |
           npm run build:places_autocomplete
           zip -j deploy.places_autocomplete.zip ./dist/places_autocomplete/*
-          aws lambda update-function-configuration --function-name gh_actions_lambda --environment "Variables={api_key= ${{ secrets.GOOGLE_API_KEY }}}"
-          aws lambda update-function-code --function-name gh_actions_lambda --zip-file fileb://deploy.places_autocomplete.zip
+          aws lambda update-function-configuration --function-name lambda_placeAutoComplete --environment "Variables={api_key= ${{ secrets.GOOGLE_API_KEY }}}"
+          aws lambda update-function-code --function-name lambda_placeAutoComplete --zip-file fileb://deploy.places_autocomplete.zip
       - name: deploy_google_api_validateAddress
         run: |
           npm run build:validate_address
